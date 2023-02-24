@@ -1,0 +1,24 @@
+<div class="container mt-2">
+    <h2 class="text-center">Registro Usuario</h2>
+    <form>
+        <div class="mb-3">
+            <label for="name" class="form-label">Nombre</label>
+            <input [(ngModel)]="nombre" type="text" class="form-control" name="name" id="name" aria-describedby="helpId" placeholder="Diego">
+        </div>
+        <div class="mb-3">
+            <label for="lastname" class="form-label">Apellido</label>
+            <input [(ngModel)]="apellido" type="text" class="form-control" name="lastname" id="lastname" aria-describedby="helpId"
+                placeholder="Maradona">
+        </div>
+        <div class="text-center">
+            <button type="button" (click)="registrarUsuario()" class="btn btn-primary">Registar</button>
+        </div>
+        
+        <p *ngIf="registrado" class="lead">
+            {{ mensaje }}  usuario  {{ nombre + ' '  + apellido  }} 
+        </p>
+
+    </form>
+<hr>
+
+</div>

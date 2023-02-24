@@ -1,0 +1,33 @@
+<div class="container mt-3">
+    <div class="card">
+        <div class="text-center my-5"  *ngIf="!categoriaUpdate else formulario" >
+            <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Loading...</span>
+              </div>
+        </div>
+
+        <ng-template #formulario >
+            <div class="card-body">
+                <form autocomplete="off" >
+                    <p class="lead text-muted text-center">Actualizando Categoria</p>
+                    <div class="mb-3">
+                        <label for="Nombre" class="form-label">Nombre Categoria</label>
+                        <input type="text" [disabled]="!categoriaUpdate ? true : false" [(ngModel)]="categoriaUpdate.nombre " name="nombre" class="form-control" id="Nombre" placeholder="">
+                    </div>
+                    <div class="mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label">Descripcion:</label>
+                        <textarea name="descripcion" [(ngModel)]="categoriaUpdate.descripcion" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    </div>
+                    <div class="text-center">
+                        <a type="button"   class="btn btn-secondary me-2" routerLink="/categorias">Atras</a>
+                        <button type="button" (click)="onUpdateCategoria()" class="btn btn-primary">Actualizar</button>
+                    </div>  
+                </form>
+            </div>
+
+        </ng-template>
+        
+    </div>
+    
+   
+</div>
