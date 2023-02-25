@@ -1,1 +1,86 @@
-<p>producto-crear works!</p>
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-body">
+
+            <div class="d-flex">
+                <h2 class="text-end lead text-muted w-100">Crear Nuevo Producto</h2>
+                <a [routerLink]="['/productos']" type="button" class="btn  btn-danger rounded-3 ms-2 px-2"> <i
+                        class="fa-solid fa-left-long"></i></a>
+            </div>
+            <form  (ngSubmit)="onSaveProducto()" #formProductoCreate="ngForm">
+
+                <div class="row">
+                    <div class="col-12 mb-3 ">
+                        <label for="exampleFormControlInput1" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" id="exampleFormControlInput1" 
+                        placeholder=" "
+                        name="nombre"
+                        required
+                        [(ngModel)]="producto.nombre"
+                        #nombreError="ngModel"
+                        >
+                        <div 
+                        [hidden]="nombreError.valid || nombreError.pristine"
+                        id="emailHelp" class="form-text text-danger ms-2">El nombre del producto es requerido. </div>
+                    </div>
+                    <div class="col-12 mb-3">
+                        <label for="exampleFormControlTextarea1" class="form-label">Descripcion</label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                        name="descripcion"
+                            [(ngModel)]="producto.descripcion"
+                            required
+                            #descripcionError="ngModel"
+                            >
+                        </textarea>
+                        <div 
+                        [hidden]="descripcionError.valid || descripcionError.pristine"
+                        id="emailHelp" class="form-text text-danger ms-2">La descripcion del producto es requerida.</div>
+                    </div>
+                    <div class="col-6 mb-3 ">
+                        <label for="exampleFormControlInput1" class="form-label">Precio</label>
+                        <input type="number" class="form-control" id="exampleFormControlInput1" placeholder=" "
+                        name="precio"
+                        [(ngModel)]="producto.precio"
+                        >
+                    </div>
+                    <div class="col-6 mb-3 ">
+                        <label for="exampleFormControlInput1" class="form-label">Costo</label>
+                        <input type="number" class="form-control" id="exampleFormControlInput1" placeholder=" "
+                        name="costo"
+                        [(ngModel)]="producto.costo">
+                    </div>
+
+                    <div class="col-6 mb-3 ">
+                        <label for="exampleFormControlInput1" class="form-label">Existencias</label>
+                        <input type="number" class="form-control" id="exampleFormControlInput1" placeholder=" "
+                        name="existencia"
+                        [(ngModel)]="producto.existencia">
+                    </div>
+                    <div class="col-6 mb-3 ">
+                        <label for="exampleFormControlInput1" class="form-label">Categoria</label>
+                        <select  class="form-select" aria-label="Default select example"
+                        name="cate"
+                        [(ngModel)]="producto.categoriaId"
+                        >
+                            <option selected>Open this select menu</option>
+                            <option *ngFor="let c of listaCategoria | async" [ngValue]="c.id">{{c.nombre}}</option>
+                            
+                        </select>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" [disabled]="formProductoCreate.invalid">
+                            GUARDAR
+                        </button>
+                    </div>
+
+                </div>               
+            </form>
+            <!-- {{ producto | json }} -->
+
+            {{nombreError.errors | json}}
+            <br>
+            {{nombreError.valid}}
+
+        </div>
+    </div>
+</div>

@@ -29,4 +29,16 @@ export class ProductoService {
 
     return this.http.get<Producto[]>('http://localhost:3000/productos?filter='+strin,);
   }
+
+  postProducto(producto: Producto){
+    return this.http.post<Producto>('http://localhost:3000/productos',producto);
+  }
+
+  getProductById(id: number){
+    return this.http.get<Producto>('http://localhost:3000/productos/'+id);
+  }
+
+  putProduct(producto: Producto){
+    return this.http.put<Producto>('http://localhost:3000/productos/'+producto.id,producto);
+  }
 }

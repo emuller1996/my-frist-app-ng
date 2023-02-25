@@ -10,7 +10,7 @@ import { ProductoService } from 'src/app/producto.service';
 })
 export class ProductoListaComponent implements OnInit{
 
-  listaProductos! : Observable<Producto[]>;
+  listaProductos!  : Observable<Producto[]>;
 
   constructor(
     private productoService: ProductoService

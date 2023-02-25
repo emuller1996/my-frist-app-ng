@@ -40,7 +40,11 @@ import { ProductoEditarComponent } from './productos/producto-editar/producto-ed
       { path: 'categorias', component: ListaCategoriaComponent},
       { path: 'categorias/crear', component: CrearCategoriaComponent},
       { path: 'categorias/editar/:id', component: EditarCategoriaComponent},
-      { path: 'productos', component: ProductoListaComponent}
+      { path: 'productos', component: ProductoListaComponent},
+      { path: 'productos/crear-producto', component: ProductoCrearComponent},
+      { path: 'productos/editar-producto/:id', component: ProductoEditarComponent},
+
+
 
 
 

@@ -1,7 +1,10 @@
 <div class="container mt-4">
     <div class="card">
         <div class="card-body">
-
+               
+            <div class="d-flex">
+                <a type="button" [routerLink]="['/productos/crear-producto']" class="btn btn-dark "> <i class="fa-regular fa-square-plus me-2"></i> Crear Producto</a>
+            </div>
 
             <div class="table-responsive">
                 <table class="table table-hover">
@@ -14,6 +17,8 @@
                             <th scope="col">Costo</th>
                             <th scope="col">Existencias</th>
                             <th scope="col">Categoria</th>
+                            <th scope="col">&nbsp;</th>
+
 
 
 
@@ -29,6 +34,10 @@
                             <td class="text-danger fw-bold">$ {{producto.costo | number}}</td>
                             <td>{{producto.existencia}}</td>
                             <td>{{producto.TIENE_UNA_CATEGORIA.nombre}}</td>
+                            <td>
+                                <a [routerLink]="['/productos/editar-producto',producto.id]"  type="button" class="btn btn-warning"><i class="fa-regular fa-pen-to-square"></i></a>
+                            </td>
+
 
                         </tr>
                         
